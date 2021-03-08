@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         'lag-dark': '#0a3542',
         'text': '#59cfc5',
+      },
+      screens: {
+        '3xl': '1800px',
       }
     },
   },
