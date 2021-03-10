@@ -28,11 +28,11 @@
           </div>
         </div>
         <div class="overflow-hidden hidden md:visible text-white md:flex justify-center items-center pt-96 h-full">
-            <p class="z-20 text-3xl mt-36 pr-56 3xl:mt-96 3xl:pt-8 3xl:text-4xl ">Our mission is to unite those who have a <br> extra in their homes with those who are in need.</p>
+            <p class="z-20 text-3xl mt-36 pr-56 ">Our mission is to unite those who have a <br> extra in their homes with those who are in need.</p>
             <button class="z-20 absolute bg-lag-dark rounded-full mt-80 ml-96 bottom-10 right-96 3xl:right-auto 3xl:bottom-20">
               <p class="p-3"> Click here to find out more</p>
             </button>
-            <img id="couple" class="overflow-hidden transform w-100 scale-75 3xl:scale-95 3xl:mt-56 h-auto z-10 absolute" src="~assets/couple.png" alt="">
+            <img id="couple" class="overflow-hidden transform w-100 scale-75 h-auto z-10 absolute" src="~assets/couple.png" alt="">
         </div>
       </div>
 
