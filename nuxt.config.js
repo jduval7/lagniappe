@@ -37,6 +37,26 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+  [ '@nuxtjs/firebase',
+    {
+      config: {
+        apiKey: "AIzaSyDrk_4CcspoI-SROz4EzWITQuozA0f7HeI",
+        authDomain: "lagniappe-jd.firebaseapp.com",
+        projectId: "lagniappe-jd",
+        storageBucket: "lagniappe-jd.appspot.com",
+        messagingSenderId: "421043378935",
+        appId: "1:421043378935:web:8ad282b94e0adc0dcd51f2",
+        measurementId: "G-ZJHJYTE4PR"
+      },
+      services: {
+        database: true,
+      },
+      database: {
+        emulatorPort: 9000,
+        emulatorHost: 'localhost',
+      }
+    }
+  ]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

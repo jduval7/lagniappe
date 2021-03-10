@@ -1,41 +1,65 @@
 <template>
   <!-- container  -->
-  <div class="overflow-hidden h-screen content-center w-screen relative ">
-      <!-- NavBar  -->
-      <div class="h-20 bg-lag-dark w-full absolute z-10">
-        <img class="max-h-16 pt-2 pl-4 mt-1" src="~assets/logo.png" alt="">
+  <div class="overflow-hidden h-screen content-center w-screen relative">
+    <!-- NavBar  -->
+    <div class="h-20 bg-lag-dark w-full absolute z-10">
+      <img class="max-h-16 pt-2 pl-4 mt-1" src="~assets/logo.png" alt="" />
+    </div>
+    <!-- MAIN CONTENT -->
+    <div class="nav">
+      <!-- Mobile Buttons-->
+      <div class="grid grid-cols-1 md:hidden gap-4 z-10">
+        <div class="buttonDiv">
+          <button class="button">Find Food</button>
+        </div>
+        <div class="buttonDiv">
+          <button class="button">Fill Pantry</button>
+        </div>
+        <div class="buttonDiv">
+          <button class="button">Donate</button>
+        </div>
+        <div class="buttonDiv">
+          <button class="button">Inbox</button>
+        </div>
       </div>
-      <!-- MAIN CONTENT -->
-      <div class="nav">
-              <!-- H1 Text  -->
-        <div class="absolute  w-full text-center z-20 hidden md:block">
-                <h1 class="z-10 relative md:text-7xl text-blue-100">Lagniappe</h1>
-                <p class="z-10 mt-4 relative md:text-2xl italic text-yellow-600">"something given or obtained gratuitously or by way of good measure"</p>
-        </div>
-        <!-- Mobile Buttons-->
-        <div class="grid grid-cols-1 md:hidden gap-4 z-10">
-          <div class="buttonDiv">
-            <button class="button">Find Food</button>
-          </div>
-          <div class="buttonDiv">
-            <button class="button">Fill Pantry</button>
-          </div>
-          <div class="buttonDiv">
-            <button class="button">Donate</button>
-          </div>
-          <div class="buttonDiv">
-            <button class="button">Inbox</button>
+      <!-- H1 Text  -->
+      <main class="container relative h-screen md:pt-32">
+        <div class="flex items-center w-full text-center z-20 md:block">
+          <div>
+            <h1 class="z-10 relative md:text-7xl text-blue-100">Lagniappe</h1>
+            <p class="z-10 mt-4 relative md:text-2xl italic text-yellow-600">
+              "something given or obtained gratuitously or by way of good measure"
+            </p>
           </div>
         </div>
-        <div class="overflow-hidden hidden md:visible text-white md:flex justify-center items-center pt-96 h-full">
-            <p class="z-20 text-3xl mt-36 pr-56 ">Our mission is to unite those who have a <br> extra in their homes with those who are in need.</p>
+        <div
+          class="absolute left-0 right-0 bottom-0 w-full py-14 hidden md:visible text-white md:flex justify-center items-center"
+        >
+          <!-- <p class="z-20 text-3xl mt-36 pr-56 ">Our mission is to unite those who have a <br> extra in their homes with those who are in need.</p>
             <button class="z-20 absolute bg-lag-dark rounded-full mt-80 ml-96 bottom-10 right-96 3xl:right-auto 3xl:bottom-20">
               <p class="p-3"> Click here to find out more</p>
             </button>
             <img id="couple" class="overflow-hidden transform w-100 scale-75 h-auto z-10 absolute" src="~assets/couple.png" alt="">
+        </div> -->
+          <p class="z-20 w-full text-3xl mt-36">
+            Our mission is to unite those who have a extra in their homes with those who are in need.
+          </p>
+          <div class="flex justify-end relative z-20 w-full">
+            <button
+              class="bg-lag-dark rounded-full 3xl:right-auto 3xl:bottom-20"
+            >
+              <p class="p-3">Click here to find out more</p>
+            </button>
+          </div>
+          <img
+            id="couple"
+            class="transform w-100 h-auto z-10 absolute"
+            src="~assets/couple.png"
+            alt=""
+          />
         </div>
-      </div>
-
+      </main>
+    </div>
   </div>
 </template>
 
@@ -51,7 +75,7 @@ export default {};
 }
 
 .nav {
-  @apply relative flex items-center md:items-start justify-center bags object-contain bg-cover bg-center h-screen pt-0 md:pt-32;
+  @apply relative flex items-center md:items-start justify-center bags object-contain bg-cover bg-center h-screen pt-0;
 }
 
 @font-face {
@@ -64,11 +88,11 @@ h1 {
 }
 
 .buttonDiv {
- @apply z-10 h-16 w-60 bg-pink-500 rounded-full md:rounded-md flex justify-center items-center;
+  @apply z-10 h-16 w-60 bg-pink-500 rounded-full md:rounded-md flex justify-center items-center;
 }
 
 .button {
- @apply bg-lag-dark text-text z-10 w-full h-full rounded-full md:rounded-md;
+  @apply bg-lag-dark text-text z-10 w-full h-full rounded-full md:rounded-md;
 }
 
 .logo {
@@ -79,7 +103,6 @@ h1 {
 }
 
 .logoNav {
-  
   background-image: url("~assets/logo.png");
   background-size: 6em;
   background-repeat: no-repeat;
@@ -91,8 +114,6 @@ h1 {
 
 @media only screen and (min-width: 1400px) {
   #couple {
-
   }
 }
-
 </style>
