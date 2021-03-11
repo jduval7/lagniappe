@@ -5,7 +5,7 @@
       <div class="border-black border-2"></div>
       <div class="border-black border-2"></div>
       <div class="border-black border-2"></div>
-      <div class="border-black border-2">
+      <div class="border-purple border-2">
         <label class="text-right float-left" for="itemName">Item Name:</label>
         <input
           class="inline-block text-left float-right w-8/12 border-black rounded bg-gray-300"
