@@ -5,7 +5,7 @@
       <div class="border-black border-2"></div>
       <div class="border-black border-2"></div>
       <div class="border-black border-2"></div>
-      <div class="border-purple border-2">
+      <div class="border-purple-600 border-2">
         <label class="text-right float-left" for="itemName">Item Name:</label>
         <input
           class="inline-block text-left float-right w-8/12 border-black rounded bg-gray-300"
@@ -43,26 +43,37 @@
 
 
 <script>
-export default {
-    created() {
-        this.readFromRealtimeDb()
-    },
-    methods: {
-        async readFromRealtimeDb() {
+    export default {
+        created() {
+            this.readFromRealtimeDb();
+        },
+        methods: {
+            async readFromRealtimeDb() {
             const messageRef = this.$fire.database.ref("cases");
             console.log(messageRef);
             try {
                 const snapshot = await messageRef.once("value");
-                
+
                 console.log(snapshot.val());
             } catch (e) {
                 alert(e);
                 return;
             }
+            },
+            async writeToRealtimeDb() {
+            const messageRef = this.$fire.database.ref("cases");
+            try {
+                await messageRef.set({
+                message: "Nuxt-Fire with Firebase Realtime Database rocks!",
+                });
+            } catch (e) {
+                alert(e);
+                return;
+            }
+            alert("Success.");
+            },
         },
-    }
-}
-
+    };
 </script>
 
 
