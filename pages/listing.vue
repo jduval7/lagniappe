@@ -17,9 +17,12 @@
         <br />
         <br />
         <label class="text-right float-left" for="category">Category:</label>
-        <select @change="catChange($event)" name="category" id="category" class="inline-block text-left float-right w-8/12 rounded bg-gray-300" required>
-            <option v-for="(category, key) in categories" :key="key">{{ category }}</option>
-        </select>
+        <div >
+            <select v-model="selectedOption" class="inline-block text-left float-right w-8/12 rounded bg-gray-300" required>
+                <option v-for="(item,key) in categories" :key="key" >{{ key }}</option>
+            </select>
+            <h1 v:model="selectedOption"> {{ selectedOption }}</h1>
+        </div>
         <br />
         <br />
         <label class="align-top text-right float-left" for="description"
@@ -55,7 +58,8 @@
         data() {
             return {
                 item: null,
-                categories: []
+                categories: [],
+                selectedOption: ""
             }
         },
         methods: {
@@ -64,20 +68,20 @@
             console.log(messageRef);
             try {
                 const snapshot = await messageRef.once("value");
-
-                console.log(snapshot.val());
+                this.categories = snapshot.val();
+                console.log(this.categories);
             } catch (e) {
                 alert(e);
                 return;
             }
             },
             addItem() {
-                firebase.database().ref('categories').push({item:this.item})
+                firebase.database().ref('categories/'+this.selectedOption).push({item:this.item})
                 .then((data)=>{console.log(data)})
                 .catch((error)=>{console.log(error)});
             },
             catChange(event) {
-                console.log(event.target.value);
+               // console.log(event.target.value);
             },
         },
     };

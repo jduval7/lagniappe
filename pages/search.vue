@@ -5,7 +5,7 @@
       <!-- <li v-for="item in cases" :key="item.phone">{{ item }}</li> -->
       <!-- <li v-if="categories">{{ categories }}</li> -->
       <li v-for="(item, key) in categories" :key="key">
-          <h1 class="text-xl"> {{ item.item }} </h1>
+          <h1 class="text-xl"> {{ key }}: {{ item.item }} </h1>
       </li>
     </ul>
   </div>
@@ -34,6 +34,7 @@ export default {
             this.categories = snapshot.val();
 
              console.log(this.categories);
+             console.log(snapshot.val());
 
         } catch (e) {
             alert(e);
