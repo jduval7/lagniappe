@@ -5,8 +5,20 @@
       <!-- <li v-for="item in cases" :key="item.phone">{{ item }}</li> -->
       <!-- <li v-if="categories">{{ categories }}</li> -->
       <li v-for="(item, key) in categories" :key="key">
-          <h1 class="text-xl"> {{ key }}: {{ item.item }} </h1>
+          <!-- <h1 v-for="fruit in Object.entries(key)" :key="key" > {{ fruit }} </h1> -->
+          <!-- <h1 class="text-xl"> {{ key }}: {{ item }} </h1> -->
+          <h1>{{key}}:</h1>
+          <br>
+          <p v-for="crud in item" :key="crud"> {{crud.item}} </p>
+          <br>
       </li>
+      <!-- {{Object.entries(categories)}} -->
+      <br><br>
+      <div>
+        <!-- <li v-for="(vegetable, key) in categories" :key="key">
+            <h1> {{ key }}: {{ vegetable }} </h1>
+        </li> -->
+      </div>
     </ul>
   </div>
 </template>
@@ -31,9 +43,13 @@ export default {
 
         try {
             const snapshot = await messageRefs.once("value");
+              
             this.categories = snapshot.val();
+             
+ 
 
-             console.log(this.categories);
+            
+            // console.log(this.categories);
              console.log(snapshot.val());
 
         } catch (e) {

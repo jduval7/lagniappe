@@ -6,23 +6,44 @@
       <div class="border-black border-2"></div>
       <div class="border-black border-2"></div>
       <div class="border-purple-600 border-2">
+        <label class="text-right float-left" for="category">Category:</label>
+        <div>
+          <select
+            v-model="selectedCat"
+            class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
+            required
+          >
+            <option :value="null" disabled selected>Select Category</option>
+            <option v-for="(item, key) in categories" :key="key">
+              {{ key }}
+            </option>
+          </select>
+        </div>
+
+        <div v-if="selectedCat">
+        <label class="text-right float-left" for="itemName">Item Name:</label>
+          <select
+            class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
+            required
+          >
+            <option v-for="item in itemNameChoice" :key="item">
+               {{ item }}
+            </option>
+          </select>
+        </div>
+
+        <br />
+        <br />
+
         <label class="text-right float-left" for="itemName">Item Name:</label>
         <input
-          v-model='item'
+          v-model="item"
           class="inline-block text-left float-right w-8/12 border-black rounded bg-gray-300"
           id="itemName"
           type="text"
           required
         />
-        <br />
-        <br />
-        <label class="text-right float-left" for="category">Category:</label>
-        <div >
-            <select v-model="selectedOption" class="inline-block text-left float-right w-8/12 rounded bg-gray-300" required>
-                <option v-for="(item,key) in categories" :key="key" >{{ key }}</option>
-            </select>
-            <h1 v:model="selectedOption"> {{ selectedOption }}</h1>
-        </div>
+
         <br />
         <br />
         <label class="align-top text-right float-left" for="description"
@@ -35,8 +56,13 @@
           rows="10"
         >
         </textarea>
-        <button v-on:click="addItem()" class="bg-blue-500 rounded-full p-2" type="submit">Submit</button>
-
+        <button
+          v-on:click="addItem()"
+          class="bg-blue-500 rounded-full p-2"
+          type="submit"
+        >
+          Submit
+        </button>
       </div>
       <div class="border-black border-2"></div>
       <div class="border-black border-2"></div>
@@ -48,43 +74,62 @@
 
 
 <script>
-    import firebase from 'firebase';
+import firebase from "firebase";
 
-
-    export default {
-        created() {
-            this.readFromRealtimeDb();
-        },
-        data() {
-            return {
-                item: null,
-                categories: [],
-                selectedOption: ""
-            }
-        },
-        methods: {
-            async readFromRealtimeDb() {
-            const messageRef = this.$fire.database.ref("categories");
-            console.log(messageRef);
-            try {
-                const snapshot = await messageRef.once("value");
-                this.categories = snapshot.val();
-                console.log(this.categories);
-            } catch (e) {
-                alert(e);
-                return;
-            }
-            },
-            addItem() {
-                firebase.database().ref('categories/'+this.selectedOption).push({item:this.item})
-                .then((data)=>{console.log(data)})
-                .catch((error)=>{console.log(error)});
-            },
-            catChange(event) {
-               // console.log(event.target.value);
-            },
-        },
+export default {
+  created() {
+    this.readFromRealtimeDb();
+  },
+  computed: {
+      itemNameChoice() {
+          switch (this.selectedCat) {
+              case 'fruits':
+                    return this.selectedFruit
+                  break;
+              case 'vegetables':
+                    return this.selectedVegetable
+                  break;
+              default:
+                  break;
+          }
+      }
+  },
+  data() {
+    return {
+      item: null,
+      categories: [],
+      selectedCat: "",
+      selectedVegetable: ["cucumber", "squash", "zucchini"],
+      selectedFruit: ["apple", "mango", "watermelon"],
     };
+  },
+  methods: {
+    async readFromRealtimeDb() {
+      const messageRef = this.$fire.database.ref("categories");
+      console.log(messageRef);
+      try {
+        const snapshot = await messageRef.once("value");
+        this.categories = snapshot.val();
+        console.log(this.categories);
+      } catch (e) {
+        alert(e);
+        return;
+      }
+    },
+    addItem() {
+      firebase
+        .database()
+        .ref("categories/" + this.selectedCat)
+        .push({ item: this.item })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 
 
