@@ -9,7 +9,10 @@
           <!-- <h1 class="text-xl"> {{ key }}: {{ item }} </h1> -->
           <h1>{{key}}:</h1>
           <br>
-          <p v-for="crud in item" :key="crud"> {{crud.item}} </p>
+          <div v-for="(subCat, key) in item" :key="key"> {{key}}: {{subCat.item}} 
+              <div v-for="superSub in subCat" :key="superSub">  {{ superSub.item }}</div>
+          </div>
+
           <br>
       </li>
       <!-- {{Object.entries(categories)}} -->

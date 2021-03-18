@@ -50,11 +50,22 @@ export default {
       },
       services: {
         database: true,
+        firestore: true,
       },
       database: {
         emulatorPort: 9000,
         emulatorHost: 'localhost',
-      }
+      },
+      firestore: {
+        memoryOnly: false, // default
+        chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
+        enablePersistence: true,
+        emulatorPort: 8080,
+        emulatorHost: 'localhost',
+        settings: {
+          // Firestore Settings - currently only works in SPA mode
+        }
+      },
     }
   ]
   ],

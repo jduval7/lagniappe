@@ -22,11 +22,12 @@
 
         <div v-if="selectedCat">
         <label class="text-right float-left" for="itemName">Item Name:</label>
-          <select
+          <select @change="onChange($event)"
             class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
             required
           >
-            <option v-for="item in itemNameChoice" :key="item">
+            <option :value="null" disabled selected>Select Category</option>
+            <option  v-for="item in itemNameChoice" :key="item">
                {{ item }}
             </option>
           </select>
@@ -101,6 +102,7 @@ export default {
       selectedCat: "",
       selectedVegetable: ["cucumber", "squash", "zucchini"],
       selectedFruit: ["apple", "mango", "watermelon"],
+      selectedItem: "",
     };
   },
   methods: {
@@ -119,7 +121,7 @@ export default {
     addItem() {
       firebase
         .database()
-        .ref("categories/" + this.selectedCat)
+        .ref("categories/" + this.selectedCat + '/' + this.selectedItem)
         .push({ item: this.item })
         .then((data) => {
           console.log(data);
@@ -127,6 +129,10 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    onChange(event) {
+        this.selectedItem = event.target.value;
+        console.log(this.selectedItem);
     },
   },
 };
