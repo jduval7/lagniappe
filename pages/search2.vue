@@ -2,7 +2,18 @@
   <div>
     <h1>This is a page</h1>
     <ul>
-      <li :key="item.key" v-for="item in pantry">{{item}}</li>
+      <li v-for="(item, key) in pantry" :key="key">
+        {{ item.testing }}
+        <!-- <div v-for="(subCat, key) in item" :key="key"> {{key}}
+              
+          </div> -->
+      </li>
+    </ul>
+    <br>
+    <ul>
+        <li v-for="(cat, name) in cats" :key="name">
+            {{name}}
+        </li>
     </ul>
   </div>
 </template>
@@ -16,16 +27,14 @@ import "firebase/firestore";
 
 export default {
   created() {
-    // firebase.firestore().collection('pantry').get().then((querySnapshot) => {
-    //     querySnapshot.forEach((doc) => {
-    //         console.log(`${doc.id} => ${doc.data()}`);
-    //     });
-    // });
+    this.queryCategories();
+
     const db = firebase.firestore();
-    db.collection('pantry').get('/testing')
-      .then(snap => {
+    db.collection("pantry")
+      .get("/testing")
+      .then((snap) => {
         const pantryCollection = [];
-        snap.forEach(doc => {
+        snap.forEach((doc) => {
           pantryCollection.push({ [doc.id]: doc.data() });
         });
         this.pantry = pantryCollection;
@@ -34,26 +43,22 @@ export default {
   data() {
     return {
       pantry: [],
+      cats: [],
     };
   },
   methods: {
-    // async readFromFirestoreDb() {
-    //   const pantryData = this.$fire.firestore
-    //     .collection("pantry")
-    //     .doc("testing");
-    //   try {
-    //     const pantryDoc = await pantryData.get();
-    //     // alert(pantryDoc.data().testing);
-    //     // console.log(pantryDoc);
-    //     this.pantry = pantryDoc;
-    //     console.log(this.pantry.docs());
-    //   } catch (e) {
-    //     alert(e);
-    //     return;
-    //   }
-    // },
+    queryCategories() {
+      const db = firebase.firestore();
 
+      db.collection("pantry")
+        .doc("D4PTEwn8QEr2j4jh7DRI")
+        .onSnapshot((doc) => {
+          console.log("Current data: ", doc.data());
+          this.cats = doc.data();
+        });
 
+        
+    },
   },
 };
 </script>
