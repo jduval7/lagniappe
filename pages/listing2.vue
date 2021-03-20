@@ -14,8 +14,8 @@
             required
           >
             <option :value="null" disabled selected>Select Category</option>
-            <option v-for="(item, key) in categories" :key="key">
-              {{ key }}
+            <option v-for="(cats, key) in categories" :key="key">
+              {{ cats.text }}
             </option>
           </select>
         </div>
@@ -86,10 +86,10 @@ export default {
   computed: {
     itemNameChoice() {
       switch (this.selectedCat) {
-        case "fruits":
+        case "Fruits":
           return this.selectedFruit;
           break;
-        case "vegetables":
+        case "Vegetables":
           return this.selectedVegetable;
           break;
         default:
@@ -100,8 +100,8 @@ export default {
   data() {
     return {
       item: null,
-      categories: [],
-      selectedCat: "",
+      categories: [{text: "Fruits"},{text: "Vegetables"}],
+      selectedCat: [],
       selectedVegetable: ["cucumber", "squash", "zucchini"],
       selectedFruit: ["apple", "mango", "watermelon"],
       selectedItem: "",
@@ -115,7 +115,7 @@ export default {
         .doc("D4PTEwn8QEr2j4jh7DRI")
         .onSnapshot((doc) => {
           console.log("Current data: ", doc.data());
-          this.categories = doc.data();
+          this.selectedCat.push(doc.data());
         });
     },
     // addItem() {
@@ -133,14 +133,12 @@ export default {
     addItem() {
       const db = firebase.firestore();
       // Add a new document in collection "cities"
-      var testing = db.collection("pantry").doc("D4PTEwn8QEr2j4jh7DRI");
+      var testing = db.collection("pantry").doc("D4PTEwn8QEr2j4jh7DRI").collection("Vegetables");
 
-      testing.update({
-        Fruits: {
-          name: "Frank",
-          favorites: { food: "Pizza", color: "Blue", subject: "recess" },
-          age: 12,
-        }
+      testing.add({
+          Description: "Hey you Did it!",
+          Expiration: "1/2/21",
+          Photos: 23,
         })
         .then(() => {
           console.log("Document successfully written!");
