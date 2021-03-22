@@ -12,6 +12,7 @@
             v-model="selectedCat"
             class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
             required
+            @change="onChange($event)"
           >
             <option :value="null" disabled selected>Select Category</option>
             <option v-for="(cats, key) in categories" :key="key">
@@ -20,7 +21,7 @@
           </select>
         </div>
 
-        <div v-if="selectedCat">
+        <!-- <div v-if="selectedCat">
           <label class="text-right float-left" for="itemName">Item Name:</label>
           <select
             @change="onChange($event)"
@@ -32,7 +33,7 @@
               {{ item }}
             </option>
           </select>
-        </div>
+        </div> -->
 
         <br />
         <br />
@@ -52,16 +53,19 @@
           >Description:</label
         >
         <textarea
+          v-model="description"
           class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
           id="description"
           cols="30"
           rows="10"
         >
         </textarea>
+        <input type="date" required />
         <button
-          v-on:click="addItem()"
+          @click="addItem($event)"
           class="bg-blue-500 rounded-full p-2"
           type="submit"
+          id="submitListing"
         >
           Submit
         </button>
@@ -81,43 +85,44 @@ import "firebase/firestore";
 
 export default {
   created() {
-    this.queryCategories();
+    //this.queryCategories();
   },
-  computed: {
-    itemNameChoice() {
-      switch (this.selectedCat) {
-        case "Fruits":
-          return this.selectedFruit;
-          break;
-        case "Vegetables":
-          return this.selectedVegetable;
-          break;
-        default:
-          break;
-      }
-    },
-  },
+  //   computed: {
+  //     itemNameChoice() {
+  //       switch (this.selectedCat) {
+  //         case "Fruits":
+  //           return this.selectedFruit;
+  //           break;
+  //         case "Vegetables":
+  //           return this.selectedVegetable;
+  //           break;
+  //         default:
+  //           break;
+  //       }
+  //     },
+  //   },
   data() {
     return {
       item: null,
-      categories: [{text: "Fruits"},{text: "Vegetables"}],
-      selectedCat: [],
+      categories: [{ text: "Fruits" }, { text: "Vegetables" }],
+      selectedCat: "",
       selectedVegetable: ["cucumber", "squash", "zucchini"],
       selectedFruit: ["apple", "mango", "watermelon"],
       selectedItem: "",
+      description: null,
     };
   },
   methods: {
-    async queryCategories() {
-      const db = firebase.firestore();
+    // async queryCategories() {
+    //   const db = firebase.firestore();
 
-      db.collection("pantry")
-        .doc("D4PTEwn8QEr2j4jh7DRI")
-        .onSnapshot((doc) => {
-          console.log("Current data: ", doc.data());
-          this.selectedCat.push(doc.data());
-        });
-    },
+    //   db.collection("pantry")
+    //     .doc("D4PTEwn8QEr2j4jh7DRI")
+    //     .onSnapshot((doc) => {
+    //       console.log("Current data: ", doc.data());
+    //       this.selectedCat.push(doc.data());
+    //     });
+    // },
     // addItem() {
     //   firebase
     //     .database()
@@ -130,26 +135,36 @@ export default {
     //       console.log(error);
     //     });
     // },
-    addItem() {
-      const db = firebase.firestore();
-      // Add a new document in collection "cities"
-      var testing = db.collection("pantry").doc("D4PTEwn8QEr2j4jh7DRI").collection("Vegetables");
+    addItem(e) {
+      if (this.selectedCat == "" || this.item == null) {
+        alert("Please Select a Category");
+        e.preventDefault();
+      } else {
+        const db = firebase.firestore();
+        // Add a new document in collection "cities"
+        var testing = db
+          .collection("pantry")
+          .doc("D4PTEwn8QEr2j4jh7DRI")
+          .collection(this.selectedCat);
 
-      testing.add({
-          Description: "Hey you Did it!",
-          Expiration: "1/2/21",
-          Photos: 23,
-        })
-        .then(() => {
-          console.log("Document successfully written!");
-        })
-        .catch((error) => {
-          console.error("Error writing document: ", error);
-        });
+        testing
+          .add({
+            ItemName: this.item,
+            Description: this.description,
+            Expiration: "1/2/21",
+            Photos: 23,
+          })
+          .then(() => {
+            console.log("Document successfully written!");
+          })
+          .catch((error) => {
+            console.error("Error writing document: ", error);
+          });
+      }
     },
     onChange(event) {
-      this.selectedItem = event.target.value;
-      console.log(this.selectedItem);
+      this.selectedCat = event.target.value;
+      console.log(this.selectedCat);
     },
   },
 };

@@ -29,6 +29,7 @@
         <button v-on:click="displayFruits" class="bg-purple-500 rounded-full p-2">
         Fruits
     </button>
+    <input class="bg-gray-200 rounded" type="text" spellcheck="true">
   </div>
 
   
