@@ -60,6 +60,10 @@
           rows="10"
         >
         </textarea>
+
+        <input type="file" @change="onFileSelected">
+        <button @click="onUpload"></button>
+
         <input type="date" required />
         <button
           @click="addItem($event)"
@@ -110,6 +114,7 @@ export default {
       selectedFruit: ["apple", "mango", "watermelon"],
       selectedItem: "",
       description: null,
+      selectedFile: null,
     };
   },
   methods: {
@@ -165,6 +170,12 @@ export default {
     onChange(event) {
       this.selectedCat = event.target.value;
       console.log(this.selectedCat);
+    },
+    onFileSelected(event) {
+      this.selectedFile = event.target.files[0];
+    },
+    onUpload() {
+      
     },
   },
 };
