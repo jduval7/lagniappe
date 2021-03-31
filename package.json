@@ -11,6 +11,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/firebase": "^7.5.0",
+    "child-process-promise": "^2.2.1",
     "core-js": "^3.8.3",
     "firebase": "^8.2.10",
     "jquery": "^3.6.0",

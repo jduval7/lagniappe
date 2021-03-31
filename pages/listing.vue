@@ -6,75 +6,75 @@
       <div class="border-black border-2"></div>
       <div class="border-black border-2"></div>
       <div class="border-purple-600 border-2">
-        <label class="text-right float-left" for="category">Category:</label>
-        <div>
-          <select
-            v-model="selectedCat"
-            class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
-            required
-            @change="onChange($event)"
-          >
-            <option :value="null" disabled selected>Select Category</option>
-            <option v-for="(cats, key) in categories" :key="key">
-              {{ cats.text }}
-            </option>
-          </select>
-        </div>
+        <form action="" @submit.prevent="onUpload">
+          <label class="text-right float-left" for="category">Category:</label>
+          <div>
+            <select
+              v-model="selectedCat"
+              class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
+              required
+              @change="onChange($event)"
+            >
+              <option :value="null" disabled selected>Select Category</option>
+              <option v-for="(cats, key) in categories" :key="key">{{ cats.text }}</option>
+            </select>
+          </div>
 
-        <!-- <div v-if="selectedCat">
+          <!-- <div v-if="selectedCat">
+            <label class="text-right float-left" for="itemName">Item Name:</label>
+            <select
+              @change="onChange($event)"
+              class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
+              required
+            >
+              <option :value="null" disabled selected>Select Category</option>
+              <option v-for="item in itemNameChoice" :key="item">
+                {{ item }}
+              </option>
+            </select>
+          </div>-->
+
+          <br />
+          <br />
+
           <label class="text-right float-left" for="itemName">Item Name:</label>
-          <select
-            @change="onChange($event)"
-            class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
+          <input
+            v-model="item"
+            class="inline-block text-left float-right w-8/12 border-black rounded bg-gray-300"
+            id="itemName"
+            type="text"
             required
-          >
-            <option :value="null" disabled selected>Select Category</option>
-            <option v-for="item in itemNameChoice" :key="item">
-              {{ item }}
-            </option>
-          </select>
-        </div> -->
+          />
 
-        <br />
-        <br />
+          <br />
+          <br />
+          <label class="align-top text-right float-left" for="description">Description:</label>
+          <textarea
+            v-model="description"
+            class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
+            id="description"
+            cols="30"
+            rows="10"
+          ></textarea>
 
-        <label class="text-right float-left" for="itemName">Item Name:</label>
-        <input
-          v-model="item"
-          class="inline-block text-left float-right w-8/12 border-black rounded bg-gray-300"
-          id="itemName"
-          type="text"
-          required
-        />
+          <input type="file" @change="onFileSelected" />
+          <button @click="onUpload"></button>
 
-        <br />
-        <br />
-        <label class="align-top text-right float-left" for="description"
-          >Description:</label
-        >
-        <textarea
-          v-model="description"
-          class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
-          id="description"
-          cols="30"
-          rows="10"
-        >
-        </textarea>
-
-        <input type="file" @change="onFileSelected">
-        <button @click="onUpload"></button>
-
-        <input type="date" required />
-        <button
-          @click="addItem($event)"
-          class="bg-blue-500 rounded-full p-2"
-          type="submit"
-          id="submitListing"
-        >
-          Submit
-        </button>
+          <input type="date" required />
+          <button
+            class="bg-blue-500 rounded-full p-2"
+            type="submit"
+            id="submitListing"
+          >Submit</button>
+        </form>
       </div>
-      <div class="border-black border-2"></div>
+      <!-- Image preview div-->
+      <div class="border-black border-2">
+        <div v-if="imageData!=null">
+          <img class="preview" height="268" width="356" :src="img1" />
+          <br />
+        </div>
+      </div>
       <div class="border-black border-2"></div>
       <div class="border-black border-2"></div>
       <div class="border-black border-2"></div>
@@ -115,6 +115,9 @@ export default {
       selectedItem: "",
       description: null,
       selectedFile: null,
+      img1: null,
+      imageData: null,
+      uploadValue: null,
     };
   },
   methods: {
@@ -140,31 +143,32 @@ export default {
     //       console.log(error);
     //     });
     // },
-    addItem(e) {
+  addItem(e) {
       if (this.selectedCat == "" || this.item == null) {
-        alert("Please Select a Category");
+        alert("Please Fill Out All of the Form");
         e.preventDefault();
       } else {
-        const db = firebase.firestore();
-        // Add a new document in collection "cities"
-        var testing = db
-          .collection("pantry")
-          .doc("D4PTEwn8QEr2j4jh7DRI")
-          .collection(this.selectedCat);
 
-        testing
-          .add({
-            ItemName: this.item,
-            Description: this.description,
-            Expiration: "1/2/21",
-            Photos: 23,
-          })
-          .then(() => {
-            console.log("Document successfully written!");
-          })
-          .catch((error) => {
-            console.error("Error writing document: ", error);
-          });
+          const db = firebase.firestore();
+          // Add a new document in collection "cities"
+          var testing = db
+            .collection("pantry")
+            .doc("D4PTEwn8QEr2j4jh7DRI")
+            .collection(this.selectedCat);
+
+          testing
+            .add({
+              ItemName: this.item,
+              Description: this.description,
+              Expiration: "1/2/21",
+              Photos: this.img1,
+            })
+            .then(() => {
+              console.log("Document successfully written!");
+            })
+            .catch(error => {
+              console.error("Error writing document: ", error);
+            });
       }
     },
     onChange(event) {
@@ -173,11 +177,38 @@ export default {
     },
     onFileSelected(event) {
       this.selectedFile = event.target.files[0];
+      console.log(this.selectedFile);
+      this.uploadValue = 0;
+      this.img1 = URL.createObjectURL(this.selectedFile);
+      this.imageData = event.target.files[0];
+      //this.onUpload();
     },
     onUpload() {
-      
-    },
-  },
+      this.img1 = null;
+      const storageRef = firebase
+        .storage()
+        .ref(`${this.imageData.name}`)
+        .put(this.imageData);
+      storageRef.on(
+        `state_changed`,
+        snapshot => {
+          this.uploadValue =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        },
+        error => {
+          console.log(error.message);
+        },
+        () => {
+          this.uploadValue = 100;
+          storageRef.snapshot.ref.getDownloadURL().then(url => {
+            this.img1 = url;
+            console.log(this.img1);
+            this.addItem();
+          });
+        }
+      );
+    }
+  }
 };
 </script>
 

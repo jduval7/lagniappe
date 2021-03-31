@@ -22,6 +22,9 @@
       <li>
           {{ product.Expiration }}
       </li>
+      <li>
+          <img :src="product.Photos" alt="">
+      </li>
     </ul>
     <button v-on:click="displayVegetables" class="bg-purple-500 rounded-full p-2">
         Vegetables
