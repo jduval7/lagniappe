@@ -28,7 +28,8 @@
           <div>
             <h1 class="z-10 relative md:text-7xl text-blue-100">Lagniappe</h1>
             <p class="z-10 mt-4 relative md:text-2xl italic text-yellow-600">
-              "something given or obtained gratuitously or by way of good measure"
+              "something given or obtained gratuitously or by way of good
+              measure"
             </p>
           </div>
         </div>
@@ -42,7 +43,8 @@
             <img id="couple" class="overflow-hidden transform w-100 scale-75 h-auto z-10 absolute" src="~assets/couple.png" alt="">
         </div> -->
           <p class="z-20 w-full text-3xl mt-36">
-            Our mission is to unite those who have a extra in their homes with those who are in need.
+            Our mission is to unite those who have a extra in their homes with
+            those who are in need.
           </p>
           <div class="flex justify-end relative z-20 w-full">
             <button

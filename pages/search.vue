@@ -26,12 +26,14 @@
           <img :src="product.Photos" alt="">
       </li>
     </ul>
-    <button v-on:click="displayVegetables" class="bg-purple-500 rounded-full p-2">
+    <nuxt-link to='/vegetables' class="bg-purple-500 rounded-full p-2">Vegetables</nuxt-link>
+    <nuxt-link to='/fruits' class="bg-purple-500 rounded-full p-2">Fruits</nuxt-link>
+    <!-- <button v-on:click="displayVegetables" class="bg-purple-500 rounded-full p-2">
         Vegetables
     </button>
         <button v-on:click="displayFruits" class="bg-purple-500 rounded-full p-2">
         Fruits
-    </button>
+    </button> -->
     <input class="bg-gray-200 rounded" type="text" spellcheck="true">
   </div>
 
