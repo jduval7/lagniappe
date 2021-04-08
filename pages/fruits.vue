@@ -28,7 +28,7 @@
               {{ key }}
             </li>
           </ul>
-          <ul>
+          <ul class="">
             <li class="float-left text-orange">
               <img
                 :src="item.Photos"
@@ -36,10 +36,10 @@
                 class="max-h-56 -mt-6 max-w-full rounded-md filter shadow-md border-2 border-blue-100"
               />
             </li>
-            <li class=" text-center text-3xl text-lag-dark">
+            <li class=" text-center text-3xl text-lag-dark lg:text-5xl">
               <span class="text-center font-seravek font-bold" >{{ item.Description }}</span>
             </li>
-            <li class="text-center text-xl font-seravek text-orange mt-2">Expiration: {{ item.Expiration }}</li>
+            <li class="text-center text-xl lg:text-3xl font-seravek text-orange mt-2">Expiration: {{ item.Expiration }}</li>
           </ul>
         </div>
       </div>
