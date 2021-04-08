@@ -4,3 +4,22 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Vegan';
+    font-weight: 400;
+    src: url('../fonts/Vegan.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cabin';
+    font-weight: 400;
+    src: url('../fonts/Cabin.ttf') format('truetype');
+}
+
+/* @font-face {
+    font-family: 'Seravek';
+    font-weight: 400;
+    src: url('../fonts/Seravek.ttc') format('truetype');
+} */
+

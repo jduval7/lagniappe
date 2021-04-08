@@ -1,46 +1,48 @@
 <template>
-  <div class="overflow-scroll h-screen content-center w-screen relative">
+  <div class="bg-lag-light overflow-scroll h-screen content-center w-screen relative">
     <div class="h-20 bg-lag-dark w-full absolute z-10">
       <img class="max-h-16 pt-2 pl-4 mt-1" src="~assets/logo.png" alt="" />
     </div>
-    <div class="top-28 relative ml-6 text-4xl font-black tracking-widest">
-      FRUITS
-    </div>
-    <div class="w-screen relative top-28">
-      <div
-        v-for="(item, key) in pantry"
-        :key="key"
-        class="bg-red-400 m-4 p-6 rounded-md overflow-auto"
-      >
-        <ul>
-          <li>
-            {{ item.testing }}
-            <!-- <div v-for="(subCat, key) in item" :key="key"> {{key}}
-                    
-                </div> -->
-          </li>
-        </ul>
-        <br />
-        <ul>
-          <li v-for="(cat, key) in cats" :key="key">
-            {{ key }}
-          </li>
-        </ul>
-        <ul>
-          <li class="float-left">
-            <img
-              :src="item.Photos"
-              alt=""
-              class="max-h-56 max-w-full rounded-md"
-            />
-          </li>
-          <li class="text-center text-3xl">
-            {{ item.Description }}
-          </li>
-          <li class="text-center text-xl">Expiration: {{ item.Expiration }}</li>
-        </ul>
+      <div class="flex justify-center">
+        <div class="sm:ml-0 lg:ml-0 flex justify-center top-28 text-orange relative text-4xl tracking-widest bg-lag-dark w-1/3 rounded-lg filter shadow-lg border-2 border-gray-400">
+          <div class="font-vegan">Fruits</div>
+        </div>
       </div>
-    </div>
+      <div class="w-screen relative top-28 flex flex-wrap justify-center align-middle">
+        <div
+          v-for="(item, key) in pantry"
+          :key="key"
+          class="bg-light-orange ml-4 m-4 p-6 rounded-md overflow-auto filter shadow-lg border-4 w-3/4"
+        >
+          <ul>
+            <li class="text-lag-dark items-center">
+              {{ item.testing }}
+              <!-- <div v-for="(subCat, key) in item" :key="key"> {{key}}
+                      
+                  </div> -->
+            </li>
+          </ul>
+          <br />
+          <ul>
+            <li v-for="(cat, key) in cats" :key="key">
+              {{ key }}
+            </li>
+          </ul>
+          <ul>
+            <li class="float-left text-orange">
+              <img
+                :src="item.Photos"
+                alt=""
+                class="max-h-56 -mt-6 max-w-full rounded-md filter shadow-md border-2 border-blue-100"
+              />
+            </li>
+            <li class=" text-center text-3xl text-lag-dark">
+              <span class="text-center font-seravek font-bold" >{{ item.Description }}</span>
+            </li>
+            <li class="text-center text-xl font-seravek text-orange mt-2">Expiration: {{ item.Expiration }}</li>
+          </ul>
+        </div>
+      </div>
   </div>
 </template>
 

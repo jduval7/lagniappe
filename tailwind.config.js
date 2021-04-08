@@ -14,7 +14,15 @@ module.exports = {
     extend: {
       colors: {
         'lag-dark': '#0a3542',
+        'lag-light': '#d9e7e8',
         'text': '#59cfc5',
+        'orange': '#f58220',
+        'light-orange': '#f9f6f4'
+      },
+      fontFamily: {
+        'vegan': ['Vegan'],
+        'cabin': ['Cabin'],
+        'seravek': ['Seravek']
       },
     },
   },
