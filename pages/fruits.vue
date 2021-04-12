@@ -85,7 +85,7 @@ export default {
           console.log(this.pantry);
         });
     },
-    getFruits() {
+    getCategoryDataFromFirebase() {
       const db = firebase.firestore();
       db.collection("pantry")
         .doc("D4PTEwn8QEr2j4jh7DRI")
@@ -101,13 +101,9 @@ export default {
           console.log("Error getting documents: ", error);
         });
     },
-    displayVegetables() {
-      this.category = "Vegetables";
-      this.getFruits();
-    },
     displayFruits() {
       this.category = "Fruits";
-      this.getFruits();
+      this.getCategoryDataFromFirebase();
     },
   },
 };

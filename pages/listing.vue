@@ -108,7 +108,7 @@ export default {
   data() {
     return {
       item: null,
-      categories: [{ text: "Fruits" }, { text: "Vegetables" }],
+      categories: [{ text: "Fruits" }, { text: "Vegetables" }, { text: "Meats" }, { text: "Grains" }, { text: "Seafood" }, { text: "Boxed" }, { text: "Canned" }],
       selectedCat: "",
       selectedVegetable: ["cucumber", "squash", "zucchini"],
       selectedFruit: ["apple", "mango", "watermelon"],

@@ -5,7 +5,7 @@
     </div>
       <div class="flex justify-center">
         <div class="sm:ml-0 lg:ml-0 flex justify-center top-28 text-orange relative text-4xl tracking-widest bg-lag-dark w-1/3 rounded-lg filter shadow-lg border-2 border-gray-400">
-          <div class="font-vegan">Vegetables</div>
+          <div class="font-vegan">Meat & Poultry</div>
         </div>
       </div>
       <div class="w-screen relative top-28 flex flex-wrap justify-center align-middle">
@@ -54,7 +54,7 @@ import "firebase/firestore";
 
 export default {
   created() {
-    this.displayVegetables();
+    this.displayMeats();
   },
   data() {
     return {
@@ -102,10 +102,10 @@ export default {
           console.log("Error getting documents: ", error);
         });
     },
-    displayVegetables() {
-      this.category = "Vegetables";
-      this.getCategoryDataFromFirebase();
-    },
+    displayMeats() {
+        this.category = "Meats";
+        this.getCategoryDataFromFirebase();
+    }
   },
 };
 </script>

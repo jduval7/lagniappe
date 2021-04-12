@@ -1,11 +1,11 @@
 <template>
-    <div class="bg-lag-light overflow-scroll h-screen content-center w-screen relative">
+  <div class="bg-lag-light overflow-scroll h-screen content-center w-screen relative">
     <div class="h-20 bg-lag-dark w-full absolute z-10">
       <img class="max-h-16 pt-2 pl-4 mt-1" src="~assets/logo.png" alt="" />
     </div>
       <div class="flex justify-center">
         <div class="sm:ml-0 lg:ml-0 flex justify-center top-28 text-orange relative text-4xl tracking-widest bg-lag-dark w-1/3 rounded-lg filter shadow-lg border-2 border-gray-400">
-          <div class="font-vegan">Vegetables</div>
+          <div class="font-vegan">Seafood</div>
         </div>
       </div>
       <div class="w-screen relative top-28 flex flex-wrap justify-center align-middle">
@@ -44,7 +44,6 @@
         </div>
       </div>
   </div>
-    
 </template>
 
 
@@ -54,7 +53,7 @@ import "firebase/firestore";
 
 export default {
   created() {
-    this.displayVegetables();
+    this.displaySeafood();
   },
   data() {
     return {
@@ -102,8 +101,8 @@ export default {
           console.log("Error getting documents: ", error);
         });
     },
-    displayVegetables() {
-      this.category = "Vegetables";
+    displaySeafood() {
+      this.category = "Seafood";
       this.getCategoryDataFromFirebase();
     },
   },
@@ -111,7 +110,10 @@ export default {
 </script>
 
 
-
-<style lang="stylus" scoped>
-
+<style >
+body {
+  background-color: gray;
+  margin: none;
+  padding: none;
+}
 </style>
