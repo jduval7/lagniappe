@@ -3,31 +3,57 @@
     <div class="h-20 bg-lag-dark w-full absolute z-10">
       <img class="max-h-16 pt-2 pl-4 mt-1" src="~assets/logo.png" alt="" />
     </div>
-    <div class="mt-48 grid bg-gradient-to-tl from-orange via-orange-lt to-orange rounded-md w-2/3 lg:h-2/3 h-full lg:grid-cols-2">
-      <button class="m-6 h-20 w-2/3 bg-lag-dark rounded-full place-self-center">
-       <nuxt-link to='/vegetables' class="text-4xl rounded-full">Vegetables</nuxt-link>
+    <div class="mt-28 md:mt-48 grid bg-gradient-to-tl from-light-orange to-light-orange rounded-md w-screen m-4 md:w-2/3 lg:h-2/3 h-screen md:h-full md:grid-cols-4 shadow-lg border-4 overflow-scroll md:overflow-hidden">
+      <button class="md:hidden m-4 h-16 w-4/5 md:h-20 md:w-2/3  bg-gradient-to-tl from-lag-dark via-lag-md to-lag-dark rounded-full place-self-center shadow-lg">
+       <nuxt-link to='/vegetables' class="text-4xl rounded-full text-orange">Vegetables</nuxt-link>
       </button>
-      <button class="m-6 h-20 w-2/3 bg-lag-dark rounded-full place-self-center">
-        <nuxt-link to='/fruits' class="text-4xl rounded-full p-2 m-6">Fruits</nuxt-link>
+      <button class="md:hidden m-4 h-16 w-4/5 md:h-20 md:w-2/3 bg-gradient-to-tl from-lag-dark via-lag-md to-lag-dark rounded-full place-self-center shadow-lg">
+        <nuxt-link to='/fruits' class="text-4xl rounded-full p-2 m-6 text-orange">Fruits</nuxt-link>
       </button>
-      <button class="m-6 h-20 w-2/3 bg-lag-dark rounded-full place-self-center">
-        <nuxt-link to='/grains' class="text-4xl rounded-full p-2 m-6">Grains</nuxt-link>
+      <button class="md:hidden m-4 h-16 w-4/5 md:h-20 md:w-2/3  bg-gradient-to-tl from-lag-dark via-lag-md to-lag-dark rounded-full place-self-center shadow-lg">
+        <nuxt-link to='/grains' class="text-4xl rounded-full p-2 m-6 text-orange">Grains</nuxt-link>
       </button>
-      <button class="m-6 h-20 w-2/3 bg-lag-dark rounded-full place-self-center">
-        <nuxt-link to='/meatpoultry' class="text-4xl rounded-full p-2 m-6">Meats</nuxt-link>
+      <button class="md:hidden m-4 h-16 w-4/5 md:h-20 md:w-2/3  bg-gradient-to-tl from-lag-dark via-lag-md to-lag-dark rounded-full place-self-center shadow-lg">
+        <nuxt-link to='/meatpoultry' class="text-4xl rounded-full p-2 m-6 text-orange">Meats</nuxt-link>
       </button>
-      <button class="m-6 h-20 w-2/3 bg-lag-dark rounded-full place-self-center">
-        <nuxt-link to='/seafood' class="text-4xl rounded-full p-2 m-6">Seafood</nuxt-link>
+      <button class="md:hidden m-4 h-16 w-4/5 md:h-20 md:w-2/3  bg-gradient-to-tl from-lag-dark via-lag-md to-lag-dark rounded-full place-self-center shadow-lg">
+        <nuxt-link to='/seafood' class="text-4xl rounded-full p-2 m-6 text-orange">Seafood</nuxt-link>
       </button>
-      <button class="m-6 h-20 w-2/3 bg-lag-dark rounded-full place-self-center">
-        <nuxt-link to='/boxed' class="text-4xl rounded-full p-2 m-6">Boxed Meals</nuxt-link>
+      <button class="md:hidden m-4 h-16 w-4/5 md:h-20 md:w-2/3  bg-gradient-to-tl from-lag-dark via-lag-md to-lag-dark rounded-full place-self-center shadow-lg">
+        <nuxt-link to='/boxed' class="text-4xl rounded-full p-2 m-6 text-orange">Boxed Meals</nuxt-link>
       </button>
-      <button class="m-6 h-20 w-2/3 bg-lag-dark rounded-full place-self-center">
-        <nuxt-link to='/canned' class="text-4xl rounded-full p-2 m-6">Canned Goods</nuxt-link>
+      <button class="md:hidden m-4 h-16 w-4/5 md:h-20 md:w-2/3  bg-gradient-to-tl from-lag-dark via-lag-md to-lag-dark rounded-full place-self-center shadow-lg">
+        <nuxt-link to='/canned' class="text-4xl rounded-full p-2 m-6 text-orange">Canned</nuxt-link>
       </button>
-      <button class="m-6 h-20 w-2/3 bg-lag-dark rounded-full place-self-center">
-        <nuxt-link to='/fruits' class="text-4xl rounded-full p-2 m-6">Fruits</nuxt-link>
+      <button class="md:hidden m-4 h-16 w-4/5 md:h-20 md:w-2/3  bg-gradient-to-tl from-lag-dark via-lag-md to-lag-dark rounded-full place-self-center shadow-lg">
+        <nuxt-link to='/fruits' class="text-4xl rounded-full p-2 m-6 text-orange">Fruits</nuxt-link>
       </button>
+
+      <nuxt-link to='/fruits' class="">
+        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      </nuxt-link>
+      <nuxt-link to='/fruits' class="">
+        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      </nuxt-link>
+      <nuxt-link to='/fruits' class="">
+        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      </nuxt-link>
+      <nuxt-link to='/fruits' class="">
+        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      </nuxt-link>
+      <nuxt-link to='/fruits' class="">
+        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      </nuxt-link>
+      <nuxt-link to='/fruits' class="">
+        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      </nuxt-link>
+      <nuxt-link to='/fruits' class="">
+        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      </nuxt-link>
+      <nuxt-link to='/fruits' class="">
+        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      </nuxt-link>
+      
     </div>  
   </div>
 

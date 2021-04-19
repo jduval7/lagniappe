@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       colors: {
         'lag-dark': '#0a3542',
+        'lag-md': '#0d4758',
         'lag-light': '#d9e7e8',
         'text': '#59cfc5',
         'orange': '#f58220',
