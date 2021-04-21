@@ -29,30 +29,44 @@
         <nuxt-link to='/fruits' class="text-4xl rounded-full p-2 m-6 text-orange">Fruits</nuxt-link>
       </button>
 
-      <nuxt-link to='/fruits' class="">
-        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      <div class="vegetables rounded-lg max-h-40 relative">
+        <nuxt-link to='/vegetables' class="rounded-lg max-h-40 "></nuxt-link>
+      </div>
+      <div class="fruits rounded-lg max-h-40 relative">
+         <nuxt-link to='/fruits' class="rounded-lg max-h-40"></nuxt-link>
+      </div>
+      <div class="rounded-lg max-h-40 breads">
+          <nuxt-link to='/grains' class="rounded-lg max-h-40"></nuxt-link>
+      </div>
+      <div class="rounded-lg max-h-40 meats">
+          <nuxt-link to='/meatpoultry' class="rounded-lg max-h-40"></nuxt-link>
+      </div>
+      <div class="seafood rounded-lg max-h-40 relative">
+        <nuxt-link to='/seafood' class="rounded-lg max-h-40 "></nuxt-link>
+      </div>
+      <div class="boxed rounded-lg max-h-40 relative">
+         <nuxt-link to='/boxed' class="rounded-lg max-h-40"></nuxt-link>
+      </div>
+      <div class="canned rounded-lg max-h-40">
+          <nuxt-link to='/canned' class="rounded-lg max-h-40"></nuxt-link>
+      </div>
+      <div class="supplies rounded-lg max-h-40">
+          <nuxt-link to='/supplies' class="rounded-lg max-h-40"></nuxt-link>
+      </div>
+
+     
+      <!-- <nuxt-link to='/seafood' class="">
+        <img src="~assets/seafood.jpg" alt="Seafood" class="rounded-lg max-h-40">
       </nuxt-link>
-      <nuxt-link to='/fruits' class="">
-        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      <nuxt-link to='/boxed' class="">
+        <img src="~assets/boxed.jpg" alt="Boxed Meals" class="rounded-lg max-h-40">
       </nuxt-link>
-      <nuxt-link to='/fruits' class="">
-        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
+      <nuxt-link to='/canned' class="">
+        <img src="~assets/canned.jpg" alt="Canned Goods" class="rounded-lg max-h-40">
       </nuxt-link>
-      <nuxt-link to='/fruits' class="">
-        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
-      </nuxt-link>
-      <nuxt-link to='/fruits' class="">
-        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
-      </nuxt-link>
-      <nuxt-link to='/fruits' class="">
-        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
-      </nuxt-link>
-      <nuxt-link to='/fruits' class="">
-        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
-      </nuxt-link>
-      <nuxt-link to='/fruits' class="">
-        <img src="~assets/fruit.jpg" alt="Fruit Basket" class="rounded-lg max-h-40">
-      </nuxt-link>
+      <nuxt-link to='/supplies' class="">
+        <img src="~assets/battery.jpg" alt="Supplies" class="rounded-lg max-h-40">
+      </nuxt-link> -->
       
     </div>  
   </div>
@@ -128,3 +142,64 @@ export default {
   },
 };
 </script>
+
+<style>
+
+
+.vegetables {
+  background-image: url("~assets/veg.jpg"), linear-gradient(rgba(0,0,0,0.2),rgba(23,125,155,0.2));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
+.fruits {
+  background-image: url("~assets/fruit.jpg"), linear-gradient(rgba(23,125,155,0.2),rgba(23,125,155,0.2));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
+.breads {
+  background-image: url("~assets/breads.jpg"), linear-gradient(rgba(23,125,155,0.2),rgba(23,125,155,0.2));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
+.meats {
+  background-image: url("~assets/meats.jpg"), linear-gradient(rgba(23,125,155,0.2),rgba(23,125,155,0.2));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
+.seafood {
+  background-image: url("~assets/seafood.jpg"), linear-gradient(rgba(23,125,155,0.2),rgba(23,125,155,0.2));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
+.boxed {
+  background-image: url("~assets/boxed.jpg"), linear-gradient(rgba(23,125,155,0.2),rgba(23,125,155,0.2));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
+.canned {
+  background-image: url("~assets/canned.jpg"), linear-gradient(rgba(23,125,155,0.2),rgba(23,125,155,0.2));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
+.supplies {
+  background-image: url("~assets/battery.jpg"), linear-gradient(rgba(23,125,155,0.2),rgba(23,125,155,0.2));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
+</style>
