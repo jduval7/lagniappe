@@ -3,7 +3,7 @@
     <div class="h-20 bg-lag-dark w-full absolute z-10">
       <img class="max-h-16 pt-2 pl-4 mt-1" src="~assets/logo.png" alt="" />
     </div>
-    <div class="mt-28 md:mt-48 grid bg-gradient-to-tl from-light-orange to-light-orange rounded-md w-screen m-4 md:w-2/3 lg:h-2/3 h-screen md:h-full md:grid-cols-4 shadow-lg border-4 overflow-scroll md:overflow-hidden">
+    <div class="mt-28 md:mt-48 grid bg-gradient-to-tl from-light-orange to-light-orange rounded-md w-screen m-4 md:w-2/3 lg:h-2/3 h-screen md:h-full md:grid-cols-2 shadow-lg border-4 overflow-scroll md:overflow-hidden">
       <button class="md:hidden m-4 h-16 w-4/5 md:h-20 md:w-2/3  bg-gradient-to-tl from-lag-dark via-lag-md to-lag-dark rounded-full place-self-center shadow-lg">
        <nuxt-link to='/vegetables' class="text-4xl rounded-full text-orange">Vegetables</nuxt-link>
       </button>
@@ -29,29 +29,29 @@
         <nuxt-link to='/fruits' class="text-4xl rounded-full p-2 m-6 text-orange">Fruits</nuxt-link>
       </button>
 
-      <div class="vegetables rounded-lg max-h-40 relative">
-        <nuxt-link to='/vegetables' class="rounded-lg max-h-40 "></nuxt-link>
+      <div class="vegetables rounded-lg max-h-40 relative z-0 m-4">
+        <nuxt-link to='/vegetables' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="fruits rounded-lg max-h-40 relative">
-         <nuxt-link to='/fruits' class="rounded-lg max-h-40"></nuxt-link>
+      <div class="fruits rounded-lg max-h-40 relative z-0 m-4">
+         <nuxt-link to='/fruits' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="rounded-lg max-h-40 breads">
-          <nuxt-link to='/grains' class="rounded-lg max-h-40"></nuxt-link>
+      <div class="breads rounded-lg max-h-40 relative z-0 m-4">
+          <nuxt-link to='/grains' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="rounded-lg max-h-40 meats">
-          <nuxt-link to='/meatpoultry' class="rounded-lg max-h-40"></nuxt-link>
+      <div class=" meats rounded-lg max-h-40 relative z-0 m-4">
+          <nuxt-link to='/meatpoultry' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="seafood rounded-lg max-h-40 relative">
-        <nuxt-link to='/seafood' class="rounded-lg max-h-40 "></nuxt-link>
+      <div class="seafood rounded-lg max-h-40 relative z-0 m-4">
+        <nuxt-link to='/seafood' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="boxed rounded-lg max-h-40 relative">
-         <nuxt-link to='/boxed' class="rounded-lg max-h-40"></nuxt-link>
+      <div class="boxed rounded-lg max-h-40 relative z-0 m-4">
+         <nuxt-link to='/boxed' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="canned rounded-lg max-h-40">
-          <nuxt-link to='/canned' class="rounded-lg max-h-40"></nuxt-link>
+      <div class="canned rounded-lg max-h-40 relative z-0 m-4">
+          <nuxt-link to='/canned' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="supplies rounded-lg max-h-40">
-          <nuxt-link to='/supplies' class="rounded-lg max-h-40"></nuxt-link>
+      <div class="supplies rounded-lg max-h-40 relative z-0 m-4">
+          <nuxt-link to='/supplies' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
 
      
@@ -145,6 +145,9 @@ export default {
 
 <style>
 
+.overlay {
+  background: linear-gradient(rgba(0,0,0,0.2),rgba(23,125,155,0.2));
+}
 
 .vegetables {
   background-image: url("~assets/veg.jpg"), linear-gradient(rgba(0,0,0,0.2),rgba(23,125,155,0.2));
