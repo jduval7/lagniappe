@@ -3,7 +3,7 @@
     <div class="h-20 bg-lag-dark w-full absolute z-10">
       <img class="max-h-16 pt-2 pl-4 mt-1" src="~assets/logo.png" alt="" />
     </div>
-    <div class="mt-28 md:mt-48 grid bg-gradient-to-tl from-light-orange to-light-orange rounded-md w-screen m-4 md:w-2/3 lg:h-2/3 h-screen md:h-full md:grid-cols-2 shadow-lg border-4 overflow-scroll md:overflow-hidden">
+    <div class="mt-28 md:mt-32 grid bg-gradient-to-tl from-light-orange to-light-orange rounded-md w-screen m-4 md:w-2/3 lg:h-4/5 xl:h-5/6 h-screen md:h-full md:grid-cols-2 xl:grid-cols-auto shadow-lg border-4 overflow-scroll md:overflow-hidden">
       <button class="md:hidden m-4 h-16 w-4/5 md:h-20 md:w-2/3  bg-gradient-to-tl from-lag-dark via-lag-md to-lag-dark rounded-full place-self-center shadow-lg">
        <nuxt-link to='/vegetables' class="text-4xl rounded-full text-orange">Vegetables</nuxt-link>
       </button>
@@ -29,28 +29,30 @@
         <nuxt-link to='/fruits' class="text-4xl rounded-full p-2 m-6 text-orange">Fruits</nuxt-link>
       </button>
 
-      <div class="vegetables rounded-lg max-h-40 relative z-0 m-4">
-        <nuxt-link to='/vegetables' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
+      <div class="vegetables relative rounded-lg h-40 xl:h-60 xl:mt-6 xl:ml-6 z-0 mt-4 ml-4 mr-4 mb-2 object-contain shadow-lg hover:bg-lag-md">
+        <nuxt-link to='/vegetables' class="cat-link rounded-lg w-full h-full text-center absolute z-20 object-contain flex items-center justify-center">
+          <h3 class="opacity-0 text-8xl z-30 text-white">VEGETABLES</h3>
+        </nuxt-link>
       </div>
-      <div class="fruits rounded-lg max-h-40 relative z-0 m-4">
+      <div class="fruits rounded-lg h-40 xl:h-60 xl:mt-6 xl:mr-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg">
          <nuxt-link to='/fruits' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="breads rounded-lg max-h-40 relative z-0 m-4">
+      <div class="breads rounded-lg h-40 xl:h-60 xl:ml-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg">
           <nuxt-link to='/grains' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class=" meats rounded-lg max-h-40 relative z-0 m-4">
+      <div class=" meats rounded-lg h-40 xl:h-60 xl:mr-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg">
           <nuxt-link to='/meatpoultry' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="seafood rounded-lg max-h-40 relative z-0 m-4">
+      <div class="seafood rounded-lg h-40 xl:h-60 xl:ml-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg">
         <nuxt-link to='/seafood' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="boxed rounded-lg max-h-40 relative z-0 m-4">
+      <div class="boxed rounded-lg h-40 xl:h-60 xl:mr-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg">
          <nuxt-link to='/boxed' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="canned rounded-lg max-h-40 relative z-0 m-4">
+      <div class="canned rounded-lg h-40 xl:h-60 xl:ml-6 xl:mb-6 relative z-0 m-4 shadow-lg">
           <nuxt-link to='/canned' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
-      <div class="supplies rounded-lg max-h-40 relative z-0 m-4">
+      <div class="supplies rounded-lg h-40 xl:h-60 xl:mr-6 xl:mb-6 relative z-0 m-4 shadow-lg">
           <nuxt-link to='/supplies' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
       </div>
 
@@ -154,6 +156,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+  background-position: center;
 }
 
 .fruits {
@@ -161,6 +164,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+  background-position: center;
 }
 
 .breads {
@@ -168,6 +172,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+  background-position: center;
 }
 
 .meats {
@@ -175,6 +180,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+  background-position: center;
 }
 
 .seafood {
@@ -182,6 +188,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+  background-position: center;
 }
 
 .boxed {
@@ -189,6 +196,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+  background-position: center;
 }
 
 .canned {
@@ -196,6 +204,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+  background-position: center;
 }
 
 .supplies {
@@ -203,6 +212,11 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+  background-position: center;
+}
+
+.cat-link:hover h3 {
+    opacity: 1;
 }
 
 </style>
