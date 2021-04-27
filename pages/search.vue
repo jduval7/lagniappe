@@ -34,26 +34,40 @@
           <h3 class="opacity-0 text-8xl z-30 text-white">VEGETABLES</h3>
         </nuxt-link>
       </div>
-      <div class="fruits rounded-lg h-40 xl:h-60 xl:mt-6 xl:mr-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg">
-         <nuxt-link to='/fruits' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
+      <div class="fruits rounded-lg h-40 xl:h-60 xl:mt-6 xl:mr-6 relative z-0 mt-4 ml-4 mr-4 mb-2 object-contain shadow-lg hover:bg-lag-md">
+         <nuxt-link to='/fruits' class="cat-link rounded-lg w-full h-full text-center absolute z-20 object-contain flex items-center justify-center">
+          <h3 class="opacity-0 text-8xl z-30 text-white">FRUITS</h3>
+         </nuxt-link>
       </div>
-      <div class="breads rounded-lg h-40 xl:h-60 xl:ml-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg">
-          <nuxt-link to='/grains' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
+      <div class="breads rounded-lg h-40 xl:h-60 xl:ml-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg hover:bg-lag-md">
+          <nuxt-link to='/grains' class="cat-link rounded-lg w-full h-full text-center absolute z-20 object-contain flex items-center justify-center">
+            <h3 class="opacity-0 text-8xl z-30 text-white">GRAINS</h3>
+          </nuxt-link>
       </div>
-      <div class=" meats rounded-lg h-40 xl:h-60 xl:mr-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg">
-          <nuxt-link to='/meatpoultry' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
+      <div class=" meats rounded-lg h-40 xl:h-60 xl:mr-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg hover:bg-lag-md">
+          <nuxt-link to='/meatpoultry' class="cat-link rounded-lg w-full h-full text-center absolute z-20 object-contain flex items-center justify-center">
+            <h3 class="opacity-0 text-8xl z-30 text-white">MEATS</h3>
+          </nuxt-link>
       </div>
-      <div class="seafood rounded-lg h-40 xl:h-60 xl:ml-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg">
-        <nuxt-link to='/seafood' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
+      <div class="seafood rounded-lg h-40 xl:h-60 xl:ml-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg hover:bg-lag-md">
+        <nuxt-link to='/seafood' class="cat-link rounded-lg w-full h-full text-center absolute z-20 object-contain flex items-center justify-center">
+           <h3 class="opacity-0 text-8xl z-30 text-white">SEAFOOD</h3>
+        </nuxt-link>
       </div>
-      <div class="boxed rounded-lg h-40 xl:h-60 xl:mr-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg">
-         <nuxt-link to='/boxed' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
+      <div class="boxed rounded-lg h-40 xl:h-60 xl:mr-6 relative z-0 mt-4 ml-4 mr-4 mb-2 shadow-lg hover:bg-lag-md">
+         <nuxt-link to='/boxed' class="cat-link rounded-lg w-full h-full text-center absolute z-20 object-contain flex items-center justify-center">
+            <h3 class="opacity-0 text-8xl z-30 text-white">BOXED MEALS</h3>
+         </nuxt-link>
       </div>
-      <div class="canned rounded-lg h-40 xl:h-60 xl:ml-6 xl:mb-6 relative z-0 m-4 shadow-lg">
-          <nuxt-link to='/canned' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
+      <div class="canned rounded-lg h-40 xl:h-60 xl:ml-6 xl:mb-6 relative z-0 m-4 shadow-lg hover:bg-lag-md">
+          <nuxt-link to='/canned' class="cat-link rounded-lg w-full h-full text-center absolute z-20 object-contain flex items-center justify-center">
+              <h3 class="opacity-0 text-8xl z-30 text-white">CANNED</h3>
+          </nuxt-link> 
       </div>
-      <div class="supplies rounded-lg h-40 xl:h-60 xl:mr-6 xl:mb-6 relative z-0 m-4 shadow-lg">
-          <nuxt-link to='/supplies' class="rounded-lg w-full h-full absolute z-20"></nuxt-link>
+      <div class="supplies rounded-lg h-40 xl:h-60 xl:mr-6 xl:mb-6 relative z-0 m-4 shadow-lg hover:bg-lag-md">
+          <nuxt-link to='/supplies' class="cat-link rounded-lg w-full h-full text-center absolute z-20 object-contain flex items-center justify-center">
+                <h3 class="opacity-0 text-8xl z-30 text-white">SUPPLIES</h3>
+          </nuxt-link>
       </div>
 
      
