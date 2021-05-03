@@ -1,83 +1,126 @@
 <template>
-  <div>
-    <div class="m-auto grid grid-flow-col grid-cols-3 grid-rows-3">
-      <div class="border-black border-2"></div>
-      <div class="border-black border-2"></div>
-      <div class="border-black border-2"></div>
-      <div class="border-black border-2"></div>
-      <div class="border-purple-600 border-2">
-        <form action="" @submit.prevent="onUpload">
-          <label class="text-right float-left" for="category">Category:</label>
-          <div>
-            <select
-              v-model="selectedCat"
-              class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
-              required
-              @change="onChange($event)"
-            >
-              <option :value="null" disabled selected>Select Category</option>
-              <option v-for="(cats, key) in categories" :key="key">{{ cats.text }}</option>
-            </select>
-          </div>
-
-          <!-- <div v-if="selectedCat">
-            <label class="text-right float-left" for="itemName">Item Name:</label>
-            <select
-              @change="onChange($event)"
-              class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
-              required
-            >
-              <option :value="null" disabled selected>Select Category</option>
-              <option v-for="item in itemNameChoice" :key="item">
-                {{ item }}
-              </option>
-            </select>
-          </div>-->
-
-          <br />
-          <br />
-
-          <label class="text-right float-left" for="itemName">Item Name:</label>
-          <input
-            v-model="item"
-            class="inline-block text-left float-right w-8/12 border-black rounded bg-gray-300"
-            id="itemName"
-            type="text"
-            required
+  <div class="bg-lag-light overflow-scroll">
+    <div class="h-20 bg-lag-dark w-full absolute z-10">
+      <img class="max-h-16 pt-2 pl-4 mt-1" src="~assets/logo.png" alt="" />
+    </div>
+    <div class="sm:m-0 md:m-auto flex flex-wrap h-screen overflow-scroll">
+      <div class="border-black border-0 w-full h-24 md:w-1/3 md:h-1/4"></div>
+      <div class="border-black border-0 w-full md:w-1/3 md:h-1/4"></div>
+      <div class="border-black border-0 w-full md:w-1/3 md:h-1/4">
+        <div v-if="imageData != null" class="h-1/3 w-1/3 absolute md:top-96 hidden md:block">
+          <img
+            class="preview w-full md:w-1/2 md:mt-4 md:ml-auto md:mr-auto p-2 rounded-md"
+            height="268"
+            width="356"
+            :src="img1"
           />
-
-          <br />
-          <br />
-          <label class="align-top text-right float-left" for="description">Description:</label>
-          <textarea
-            v-model="description"
-            class="inline-block text-left float-right w-8/12 rounded bg-gray-300"
-            id="description"
-            cols="30"
-            rows="10"
-          ></textarea>
-
-          <input type="file" @change="onFileSelected" />
-          <button @click="onUpload"></button>
-
-          <input type="date" required />
-          <button
-            class="bg-blue-500 rounded-full p-2"
-            type="submit"
-            id="submitListing"
-          >Submit</button>
-        </form>
-      </div>
-      <!-- Image preview div-->
-      <div class="border-black border-2">
-        <div v-if="imageData!=null">
-          <img class="preview" height="268" width="356" :src="img1" />
           <br />
         </div>
       </div>
-      <div class="border-black border-2"></div>
-      <div class="border-black border-2"></div>
-      <div class="border-black border-2"></div>
+      <div class="border-black border-0 w-full md:w-1/4 md:h-1/3"></div>
+      <div
+        class="border-purple-600 border-0 rounded-md w-full md:w-1/2 md:h-3/5 text-center content-center"
+      >
+        <form
+          action=""
+          @submit.prevent="onUpload"
+          class="w-full text-center content-center flex flex-wrap"
+        >
+          <div class="px-4 mb-4 w-full">
+            <label
+              class="block text-lag-dark font-bold md:text-3xl tracking-wide"
+              for="category"
+              >Category:</label
+            >
+
+            <select
+              v-model="selectedCat"
+              class="w-4/5 rounded bg-gray-300"
+              required
+              @change="onChange($event)"
+            >
+              <option :value="null" disabled selected>Select Category</option>
+              <option v-for="(cats, key) in categories" :key="key">
+                {{ cats.text }}
+              </option>
+            </select>
+          </div>
+
+          <br class="hidden md:block" />
+          <br class="hidden md:block" />
+          <div class="px-4 mb-4 w-full">
+            <label
+              class="block text-lag-dark font-bold md:text-3xl tracking-wide"
+              for="itemName"
+              >Item Name:</label
+            >
+            <input
+              v-model="item"
+              class="w-4/5 border-black rounded bg-gray-300"
+              id="itemName"
+              type="text"
+              required
+            />
+          </div>
+          <br class="hidden md:block" />
+          <br class="hidden md:block" />
+
+          <div class="px-4 mb-4 w-full">
+            <label
+              class="align-top block text-lag-dark font-bold md:text-3xl tracking-wide"
+              for="description"
+              >Description:</label
+            >
+            <textarea
+              v-model="description"
+              class="inline-block w-4/5 rounded bg-gray-300"
+              id="description"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+          <div class="px-4 mb-4 w-full flex items-center justify-center">
+            <input class="" type="file" @change="onFileSelected" />
+            <button class="-ml-12" @click="onUpload"></button>
+          </div>
+          <div
+            class="px-4 mb-4 w-full flex flex-wrap items-center justify-center"
+          >
+            <label
+              class="w-full mx-6 md:mx-20 mb-2 md:text-3xl text-lag-dark font-bold tracking-wide"
+              for="expiration"
+              >Expiration:
+            </label>
+            <input class="" type="date" required />
+          </div>
+          <div class="px-4 mb-4 w-full flex items-center justify-center">
+            <button
+              class="ml-auto mr-auto block bg-lag-md text-orange-lt font-bold rounded-full p-1 w-3/5"
+              type="submit"
+              id="submitListing"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- Image preview div-->
+      <div
+        class="border-black border-0 w-full md:w-1/3 md:h-1/4 items-center content-center"
+      >
+        <div v-if="imageData != null" class="h-full w-full md:hidden">
+          <img
+            class="preview w-full md:w-1/2 md:mt-4 md:ml-auto md:mr-auto p-2 rounded-md"
+            height="268"
+            width="356"
+            :src="img1"
+          />
+          <br />
+        </div>
+      </div>
+      <div class="border-black border-0 w-full md:w-1/3 md:h-1/4"></div>
+      <div class="border-black border-0 w-full md:w-1/3 md:h-1/4"></div>
+      <div class="border-black border-0 w-full md:w-1/2 md:h-1/4"></div>
     </div>
   </div>
 </template>
@@ -108,7 +151,15 @@ export default {
   data() {
     return {
       item: null,
-      categories: [{ text: "Fruits" }, { text: "Vegetables" }, { text: "Meats" }, { text: "Grains" }, { text: "Seafood" }, { text: "Boxed" }, { text: "Canned" }],
+      categories: [
+        { text: "Fruits" },
+        { text: "Vegetables" },
+        { text: "Meats" },
+        { text: "Grains" },
+        { text: "Seafood" },
+        { text: "Boxed" },
+        { text: "Canned" },
+      ],
       selectedCat: "",
       selectedVegetable: ["cucumber", "squash", "zucchini"],
       selectedFruit: ["apple", "mango", "watermelon"],
@@ -143,32 +194,31 @@ export default {
     //       console.log(error);
     //     });
     // },
-  addItem(e) {
+    addItem(e) {
       if (this.selectedCat == "" || this.item == null) {
         alert("Please Fill Out All of the Form");
         e.preventDefault();
       } else {
+        const db = firebase.firestore();
+        // Add a new document in collection "cities"
+        var testing = db
+          .collection("pantry")
+          .doc("D4PTEwn8QEr2j4jh7DRI")
+          .collection(this.selectedCat);
 
-          const db = firebase.firestore();
-          // Add a new document in collection "cities"
-          var testing = db
-            .collection("pantry")
-            .doc("D4PTEwn8QEr2j4jh7DRI")
-            .collection(this.selectedCat);
-
-          testing
-            .add({
-              ItemName: this.item,
-              Description: this.description,
-              Expiration: "1/2/21",
-              Photos: this.img1,
-            })
-            .then(() => {
-              console.log("Document successfully written!");
-            })
-            .catch(error => {
-              console.error("Error writing document: ", error);
-            });
+        testing
+          .add({
+            ItemName: this.item,
+            Description: this.description,
+            Expiration: "1/2/21",
+            Photos: this.img1,
+          })
+          .then(() => {
+            console.log("Document successfully written!");
+          })
+          .catch((error) => {
+            console.error("Error writing document: ", error);
+          });
       }
     },
     onChange(event) {
@@ -191,24 +241,24 @@ export default {
         .put(this.imageData);
       storageRef.on(
         `state_changed`,
-        snapshot => {
+        (snapshot) => {
           this.uploadValue =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         },
-        error => {
+        (error) => {
           console.log(error.message);
         },
         () => {
           this.uploadValue = 100;
-          storageRef.snapshot.ref.getDownloadURL().then(url => {
+          storageRef.snapshot.ref.getDownloadURL().then((url) => {
             this.img1 = url;
             console.log(this.img1);
             this.addItem();
           });
         }
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
