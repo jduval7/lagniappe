@@ -24,7 +24,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    
+    '~/plugins/firebase.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -33,6 +33,10 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: ['@nuxtjs/tailwindcss'
   ],
+
+  // router: {
+  //   middleware: ['auth']
+  // },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -52,6 +56,7 @@ export default {
       services: {
         database: true,
         firestore: true,
+        auth: true,
       },
       database: {
         emulatorPort: 9000,
@@ -66,6 +71,15 @@ export default {
         settings: {
           // Firestore Settings - currently only works in SPA mode
         }
+      },
+      auth: {
+        persistence: 'local', // default
+        initialize: {
+          onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+          onAuthStateChangedAction: 'onAuthStateChangedAction',
+          subscribeManually: false
+        },
+        ssr: false, // default
       },
     }
   ]
