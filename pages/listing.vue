@@ -127,27 +127,31 @@
 
 
 <script>
+import { getUserFromCookie } from '@/helpers';
 import firebase from "firebase";
 import "firebase/firestore";
+import 'firebase/auth';
 
 export default {
-  created() {
-    //this.queryCategories();
+  asyncData({req, redirect}) {
+      if(process.server) {
+          const user = getUserFromCookie(req);
+          //console.log(user);
+          if(!user) {
+            //console.log('here');
+            redirect('/login');
+          }
+      } else {
+          let user = firebase.auth().currentUser
+          //console.log(user.uid);
+          if(!user) {
+            console.log('working');
+            redirect('/login');
+          }  
+    }
   },
-  //   computed: {
-  //     itemNameChoice() {
-  //       switch (this.selectedCat) {
-  //         case "Fruits":
-  //           return this.selectedFruit;
-  //           break;
-  //         case "Vegetables":
-  //           return this.selectedVegetable;
-  //           break;
-  //         default:
-  //           break;
-  //       }
-  //     },
-  //   },
+  created() {
+  },
   data() {
     return {
       item: null,
@@ -169,6 +173,7 @@ export default {
       img1: null,
       imageData: null,
       uploadValue: null,
+      userID: '',
     };
   },
   methods: {
@@ -212,6 +217,7 @@ export default {
             Description: this.description,
             Expiration: "1/2/21",
             Photos: this.img1,
+            UserID: this.$store.state.userID,
           })
           .then(() => {
             console.log("Document successfully written!");

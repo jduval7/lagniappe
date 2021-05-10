@@ -48,18 +48,45 @@
 
 
 <script>
+import { getUserFromCookie } from '@/helpers';
 import firebase from "firebase";
 import "firebase/firestore";
+import 'firebase/auth';
+import Cookies from 'js-cookie';
 
 export default {
+  asyncData({req, redirect}) {
+      if(process.server) {
+          const user = getUserFromCookie(req);
+          //console.log(user);
+          if(!user) {
+            //console.log('here');
+            redirect('/login');
+          }
+      } else {
+          let user = firebase.auth().currentUser
+          //console.log(user.uid);
+          if(!user) {
+            console.log('working');
+            redirect('/login');
+          }  
+    }
+  },
   created() {
-    this.displayFruits();
+      this.displayFruits();
+      let user = firebase.auth().currentUser
+      if(user) {
+        this.userID = user.uid;
+        console.log(this.userID + 'works!');
+      }
+      
   },
   data() {
     return {
       pantry: [],
       cats: [],
       category: "",
+      userID: '',
     };
   },
   methods: {
