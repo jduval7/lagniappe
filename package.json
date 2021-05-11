@@ -11,11 +11,13 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/firebase": "^7.5.0",
+    "@nuxtjs/pwa": "^3.3.5",
     "@vue/composition-api": "^1.0.0-rc.8",
     "child-process-promise": "^2.2.1",
     "cookieparser": "^0.1.0",
     "core-js": "^3.8.3",
     "firebase": "^8.2.10",
+    "firebase-admin": "^9.8.0",
     "jquery": "^3.6.0",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^3.1.2",

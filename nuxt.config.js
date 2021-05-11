@@ -27,7 +27,7 @@ export default {
     '~/plugins/firebase.js',
     '~/plugins/helper.js',
     '@/plugins/axios',
-    { src: '@/plugins/auth-listener', mode: 'client' }
+    { src: '@/plugins/auth-listener', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
