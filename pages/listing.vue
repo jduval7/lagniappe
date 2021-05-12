@@ -217,7 +217,7 @@ export default {
             Description: this.description,
             Expiration: "1/2/21",
             Photos: this.img1,
-            UserID: this.$store.state.userID,
+            UserID: this.$store.state.user.uid,
           })
           .then(() => {
             console.log("Document successfully written!");

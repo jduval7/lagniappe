@@ -1,5 +1,7 @@
 <template>
+  <!-- <LoadingScreen v-if="isLoading"></LoadingScreen> -->
   <div class="bg-lag-light overflow-scroll h-screen content-center w-screen relative">
+    
     <div class="h-20 bg-lag-dark w-full absolute z-10">
       <img class="max-h-16 pt-2 pl-4 mt-1" src="~assets/logo.png" alt="" />
     </div>
@@ -53,23 +55,36 @@ import firebase from "firebase";
 import "firebase/firestore";
 import 'firebase/auth';
 import Cookies from 'js-cookie';
+import LoadingScreen from "../components/loading";
+
 
 export default {
-  asyncData({req, redirect}) {
-      if(process.server) {
-          const user = getUserFromCookie(req);
-          //console.log(user);
-          if(!user) {
-            //console.log('here');
-            redirect('/login');
-          }
-      } else {
-          let user = firebase.auth().currentUser
-          //console.log(user.uid);
-          if(!user) {
-            console.log('working');
-            redirect('/login');
-          }  
+  //middleware: 'auth',
+  // asyncData({req, redirect}) {
+  //     if(process.server) {
+  //         const user = getUserFromCookie(req);
+  //         //console.log(user);
+  //         if(!user) {
+  //           //console.log('here');
+  //           redirect('/login');
+  //         }
+  //     } else {
+  //         let user = firebase.auth().currentUser
+  //         //console.log(user.uid);
+  //         if(!user) {
+  //           console.log('working');
+  //           redirect('/login');
+  //         }  
+  //   }
+  // },
+  computed: {
+    user() {
+
+       return this.$store.getters.IS_AUTHENTICATED;
+       if(!check) {
+         redirect('/login');
+         console.log('worksss');
+       } 
     }
   },
   created() {
@@ -81,13 +96,23 @@ export default {
       }
       
   },
+  mounted() {
+      //console.log(this.$store.getters.IS_AUTHENTICATED);
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1500);
+  },
   data() {
     return {
       pantry: [],
       cats: [],
       category: "",
       userID: '',
+      isLoading: true,
     };
+  },
+  components: {
+    LoadingScreen
   },
   methods: {
     queryCategories() {

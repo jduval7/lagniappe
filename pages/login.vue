@@ -71,8 +71,8 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then((data) => {
           console.log(data.user.uid);
-          let userID = data.user.uid;
-          this.$store.commit('SET_USERID', userID);
+          let user = data.user.uid;
+          this.$store.commit('SET_USER', user);
           this.$router.push("/");
         })
         .catch((error) => (this.error = error));
@@ -80,6 +80,8 @@ export default {
     logout() {
       firebase.auth().signOut();
       console.log("logged out");
+      let user = null;
+      this.$store.commit('SET_USER', user);
     },
     setupFirebase() {
       firebase.auth().onAuthStateChanged((user) => {
@@ -90,11 +92,11 @@ export default {
             .auth()
             .currentUser.getIdToken(true)
             .then(token => {
-              Cookies.set("access_token", token);
+              //Cookies.set("access_token", token);
             });
         } else {
           this.loggedIn = false;
-          Cookies.remove('access_token');
+          //Cookies.remove('access_token');
         }
       });
     },

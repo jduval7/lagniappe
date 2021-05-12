@@ -16,7 +16,7 @@ const BuildProfile = (user, claims) => {
         await app.$fireAuth.signOut();
       } catch {}
     }
-    app.$fireAuth.onIdTokenChanged(async function(authUser) {
+    app.$fire.auth.onIdTokenChanged(async function(authUser) {
       if (authUser) {
         try {
           await _handleAuthSuccess(authUser)
@@ -28,6 +28,7 @@ const BuildProfile = (user, claims) => {
       }
     })
   
+
     async function _handleAuthSuccess(authUser) {
       const { claims, token } = await authUser.getIdTokenResult()
       const user = BuildProfile(authUser, claims)

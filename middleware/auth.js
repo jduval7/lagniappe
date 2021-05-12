@@ -1,16 +1,12 @@
-// export default function ({route, redirect}) {
-//     if (route.path !== '/login') {
+import Cookies from 'js-cookie';
 
-//         if (!app.$fire.currentUser) {
+export default function ({route, store, redirect}) {
+    // if (route.path !== '/login') {
 
-//             return redirect('/login')
-//         }
-//     }  else if (route.path === '/login') {
+    //     if (!!Cookies.get('access_token')) {
 
-//         if (!app.$fire.auth.currentUser) {
-
-//         } else {
-//             return redirect('/')
-//         }
-//     }
-// }
+    //         return redirect('/login')
+    //     }
+    // }  
+    //  console.log(Cookies.get('__session'));
+}
