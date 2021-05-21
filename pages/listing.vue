@@ -135,7 +135,7 @@ export default {
   created() {
               firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                console.log(user.uid);
+                //console.log(user.uid);
                 // update data or vuex state
             } else {
                 console.log('User is not logged in.');
@@ -166,6 +166,7 @@ export default {
       imageData: null,
       uploadValue: null,
       userID: '',
+      setDocID: '',
     };
   },
   methods: {
@@ -210,13 +211,20 @@ export default {
             Expiration: "1/2/21",
             Photos: this.img1,
             UserID: this.$store.state.user.uid,
+            Category: this.selectedCat,
+            //DocNo: docID,
           })
-          .then(() => {
+          .then((docRef) => {
             console.log("Document successfully written!");
+            testing.doc(docRef.id).update({
+              docID: docRef.id,
+            });
+
           })
           .catch((error) => {
             console.error("Error writing document: ", error);
           });
+
       }
     },
     onChange(event) {

@@ -54,11 +54,14 @@
             Expiration: {{ item.Expiration }}
           </li>
           <li>
-              <button class="w-36 h-10 bg-yellow-500 float-right -mt-28 rounded-md text-xl font-bold" @click="deleteItem(item.DocNo)">Delete</button>
+            <button
+              class="w-36 h-10 bg-yellow-500 float-right -mt-28 rounded-md text-xl font-bold"
+              @click="deleteItem(item)"
+            >
+              Delete
+            </button>
           </li>
-            
         </ul>
-        
       </div>
     </div>
   </div>
@@ -202,10 +205,9 @@ export default {
     displayFruits() {
       //this.category = "Fruits";
       this.getCategoryDataFromFirebase();
-      if(this.pantry) {
-          //console.log(this.pantry[0].DocNo);
+      if (this.pantry) {
+        console.log(this.pantry);
       }
-        
     },
     getUser() {
       firebase.auth().onAuthStateChanged((user) => {
@@ -219,10 +221,26 @@ export default {
       });
     },
     deleteItem(data) {
-        if(data) {
-            console.log(data);
-        }
-    }
+      if (data) {
+        console.log(data);
+
+        const db = firebase.firestore();
+        var docToDelete = db
+          .collection("pantry")
+          .doc("D4PTEwn8QEr2j4jh7DRI")
+          .collection(data.Category)
+          .doc(data.docID);
+
+        docToDelete
+          .delete()
+          .then(() => {
+            console.log("Document successfully deleted!");
+          })
+          .catch((error) => {
+            console.error("Error removing document: ", error);
+          });
+      }
+    },
   },
 };
 </script>
