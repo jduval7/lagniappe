@@ -26,7 +26,7 @@ export const mutations = {
 
 export const getters = {
   IS_AUTHENTICATED(state) {
-    return !!state.user && !!Cookies.get('__session');
+    return !!state.user;
   }
 }
 

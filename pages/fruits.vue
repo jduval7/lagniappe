@@ -59,48 +59,24 @@ import LoadingScreen from "../components/loading";
 
 
 export default {
-  //middleware: 'auth',
-  // asyncData({req, redirect}) {
-  //     if(process.server) {
-  //         const user = getUserFromCookie(req);
-  //         //console.log(user);
-  //         if(!user) {
-  //           //console.log('here');
-  //           redirect('/login');
-  //         }
-  //     } else {
-  //         let user = firebase.auth().currentUser
-  //         //console.log(user.uid);
-  //         if(!user) {
-  //           console.log('working');
-  //           redirect('/login');
-  //         }  
-  //   }
-  // },
-  computed: {
-    user() {
-
-       return this.$store.getters.IS_AUTHENTICATED;
-       if(!check) {
-         redirect('/login');
-         console.log('worksss');
-       } 
-    }
-  },
   created() {
-      this.displayFruits();
-      let user = firebase.auth().currentUser
-      if(user) {
-        this.userID = user.uid;
-        console.log(this.userID + 'works!');
-      }
+              firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                console.log(user.uid);
+                this.displayFruits();
+                // update data or vuex state
+            } else {
+                console.log('User is not logged in.');
+                this.$router.push('/login');
+            }
+         });
       
   },
   mounted() {
-      //console.log(this.$store.getters.IS_AUTHENTICATED);
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 1500);
+      // console.log(localStorage.getItem(this.$store.state.user));
+      // setTimeout(() => {
+      //   this.isLoading = false;
+      // }, 1500);
   },
   data() {
     return {

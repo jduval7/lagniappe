@@ -127,30 +127,22 @@
 
 
 <script>
-import { getUserFromCookie } from '@/helpers';
 import firebase from "firebase";
 import "firebase/firestore";
 import 'firebase/auth';
 
 export default {
-  asyncData({req, redirect}) {
-      if(process.server) {
-          const user = getUserFromCookie(req);
-          //console.log(user);
-          if(!user) {
-            //console.log('here');
-            redirect('/login');
-          }
-      } else {
-          let user = firebase.auth().currentUser
-          //console.log(user.uid);
-          if(!user) {
-            console.log('working');
-            redirect('/login');
-          }  
-    }
-  },
   created() {
+              firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                console.log(user.uid);
+                // update data or vuex state
+            } else {
+                console.log('User is not logged in.');
+                this.$router.push('/login');
+            }
+         });
+      
   },
   data() {
     return {

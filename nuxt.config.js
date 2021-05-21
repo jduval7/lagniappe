@@ -28,6 +28,7 @@ export default {
     '~/plugins/helper.js',
     '@/plugins/axios',
     { src: '@/plugins/auth-listener', mode: 'client' },
+    { src: '~/plugins/persistedState.js'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
